@@ -1,0 +1,33 @@
+<template>
+    
+    <div class="slds-m-horizontal_x-small">
+    <!-- lightning card is a base component -->
+        <lightning-card >
+           <div>
+        <img class="card-img"
+            src={product.Img}
+            alt="movie poster"
+        />
+        </div>
+        <br/>
+        <div>
+    <!-- accessing javascript property -->
+            <p class="title slds-align_absolute-center">{product.Name}<br/><br/></p>
+            <p class="slds-align_absolute-center">Price : {product.Price}</p>
+            <br/>
+            
+    <!-- a is anchor tag to redirect to another page. Target- blank will open in
+    new tab -->
+           
+                <lightning-button 
+                    label="Add to cart"
+                    class="slds-align_absolute-center"
+                    onclick={sendEvent}
+                    value={product}>
+                </lightning-button>
+            
+        
+        </div>
+        </lightning-card>
+        </div>
+        </template>

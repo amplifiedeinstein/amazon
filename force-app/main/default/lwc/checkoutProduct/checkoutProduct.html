@@ -1,0 +1,22 @@
+<template>
+    <lightning-card>
+<div class="checkoutProduct">
+    <img class="checkoutProduct__image" src={prodobj.Img} alt="checkoutProduct__image" />
+
+    <div class="checkoutProduct__info">
+        <p class="checkoutProduct__title">{prodobj.Name}</p>
+        <p>
+            <small>₹</small>
+            <strong>{prodobj.Price}</strong>
+        </p>
+
+        
+          <div class="checkoutProduct__rating">
+            
+            <p>🌟🌟🌟🌟🌟</p>
+          </div>
+        <button value={index} onclick={removeProd}>Remove from basket</button>
+    </div>
+</div>
+</lightning-card>
+</template>

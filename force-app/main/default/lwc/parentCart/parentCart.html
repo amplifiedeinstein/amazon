@@ -1,0 +1,44 @@
+<template>
+    <template if:true={bool1}>
+        <c-header cartcount={cartCount}></c-header>
+<lightning-card>
+    <lightning-button  variant="brand-outline" label={cartDisp} class="slds-m-left_x-small"></lightning-button>
+
+    <lightning-button variant="destructive-text" label="Clear Cart" onclick={handleClearCartClick} class="slds-m-left_x-small"></lightning-button>
+
+    <lightning-button variant="brand" label='View Cart' onclick={handleViewCartClick} class="slds-m-left_x-small"></lightning-button>
+   
+</lightning-card>
+<lightning-card>
+    <h1>All Products Available :-</h1>
+</lightning-card>
+<template for:each={productList} for:item="productItem">
+      
+        <c-child-cart key={productItem.Price} product={productItem} onaddtocart={hanldeAddCart}></c-child-cart>
+           <hr key={productItem.Price}>
+        </template>
+
+</template>
+<template if:false={bool1}>
+    
+    <c-header cartcount={cartCount}></c-header>
+
+    <lightning-card>
+        <lightning-button variant="brand-outline" label={cartDisp} class="slds-m-left_x-small"></lightning-button>
+    
+        <lightning-button variant="destructive-text" label="Clear Cart" onclick={handleClearCartClick} class="slds-m-left_x-small"></lightning-button>
+    
+        <lightning-button variant="brand" label='Go Back' onclick={handleGoBackClick} class="slds-m-left_x-small"></lightning-button>
+     
+    </lightning-card>
+    <lightning-card>
+    <h1>Items In Your Cart :-</h1>
+</lightning-card>
+    <template for:each={prodsInCart} for:item="prodsInCartItem" for:index="i">
+
+<c-checkout-product key={prodsInCartItem.Price} prodobj={prodsInCartItem}  index={i} onremovecart={hanldeRemoveFromCart}></c-checkout-product>
+<hr key={prodsInCartItem.Price}>
+</template>
+</template>
+
+</template>
